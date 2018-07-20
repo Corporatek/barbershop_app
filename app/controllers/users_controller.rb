@@ -68,12 +68,12 @@ class UsersController < ProtectedController
   def set_user
     @user = User.find(params[:id])
   end
-
+  # private
   def user_creds
     params.require(:credentials)
           .permit(:email, :password, :password_confirmation)
   end
-
+  # private
   def pw_creds
     params.require(:passwords)
           .permit(:old, :new)
