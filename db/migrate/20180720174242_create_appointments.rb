@@ -2,20 +2,19 @@ class CreateAppointments < ActiveRecord::Migration[5.1]
   def change
     create_table :appointments do |t|
       t.datetime :date
-      t.string :haircut
-      t.integer :user_id
-      t.integer :barber_id
-      t.string :barber_id_name
-      t.belongs_to :user, index: true
-      t.belongs_to :barber, index: true
+      # t.string :haircut
+      # t.integer :user_id (not sure if I need. Test with and without it blocked out)
+      # t.integer :barber_id, index: true
+      t.string :barber_name
+      # t.string :user_name
+      t.references :user, index: true
+      t.references :barber, index: true
 
       t.timestamps #null: false
     end
-    add_foreign_key :appointments, :barbers, column: :barber_id_name
-    add_foreign_key :barbers, :name, column: :barber_id_name # A/B test
-    add_foreign_key :appointments, :users, column: :user_id
-    add_index :barbers, :barber_id
-    add_index :users, :user_id
+    add_index :appointments, ["user_id"], name: "index_appointments_on_user_id"
+    # add_index :appointments, ["barber_id"], name: "index_appointments_on_barber_id"
+
   end
 
 end

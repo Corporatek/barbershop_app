@@ -16,14 +16,13 @@ ActiveRecord::Schema.define(version: 20180720174242) do
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.string "haircut"
     t.integer "barber_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "time"
     t.date "date"
-    t.string "barber_name"
+    t.string "haircut"
   end
 
   create_table "barbers", force: :cascade do |t|
