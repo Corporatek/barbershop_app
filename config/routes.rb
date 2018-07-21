@@ -14,9 +14,20 @@ Rails.application.routes.draw do
   patch '/change-password' => 'users#changepw'
 
   # Apppointment custom routes
-  # post '/appointments' => 'appointment#create'
-  # get
+   post '/appointments' => 'appointments#create'
+   get '/appointments/:id' =>'appointments#show'
+   delete '/appointments/:id' => 'appointments#destroy'
+   patch '/appointments/:id/edit' => 'appointments#edit'
 
+  # Barber custom routes
+  post '/barbers' => 'barbers#create'
+   get '/barbers/:id' =>'barbers#show'
+   delete '/barbers/:id' => 'barbers#destroy'
+   patch '/barbers/:id/edit' => 'barbers#edit'
+
+  # Example custome routes
+  post '/examples' => 'examples#create'
+  get '/examples/:id' => 'examples#show'
 
 end
 

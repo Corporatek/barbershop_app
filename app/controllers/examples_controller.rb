@@ -21,7 +21,8 @@ class ExamplesController < OpenReadController
   # POST /examples.json
   def create
     @example = current_user.examples.build(example_params)
-
+    # binding.pry
+    @example = Example.new
     if @example.save
       render json: @example, status: :created
     else

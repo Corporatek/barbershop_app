@@ -21,6 +21,7 @@ class ApplicationController < ActionController::API
   # Use Token Authentication
   include ActionController::HttpAuthentication::Token::ControllerMethods
   def authenticate
+     # GET RID OF THIS . (KELECHI ADDED THIS on 7/20)
     @current_user =
       authenticate_or_request_with_http_token(&AUTH_PROC)
   end
