@@ -1,6 +1,4 @@
 class Appointment < ApplicationRecord
-    belongs_to :barber
-    belongs_to :user
-    has_one :barber
-    has_one :user
+    has_one :Barber
+    has_one :User
 end

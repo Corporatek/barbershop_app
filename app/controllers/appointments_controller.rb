@@ -6,6 +6,7 @@ class AppointmentsController < ApplicationController
     @appointments = Appointment.all
 
     render json: @appointments
+    
   end
 
   # GET /appointments/1
