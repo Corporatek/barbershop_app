@@ -6,7 +6,7 @@ module Authentication
 
   #
   module ClassMethods
-    def authenticate(email, password)
+    def authenticate(email, password, phone_number, barber)
       user = find_by(email: email)
       return unless user
       user.send :new_token
