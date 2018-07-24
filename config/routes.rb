@@ -21,7 +21,8 @@ Rails.application.routes.draw do
 
   # Barber custom routes
   post '/barbers' => 'barbers#create'
-   get '/barbers/:id' =>'barbers#show'
+  get '/barbers/:id' =>'barbers#show'
+  get '/barbers/' => 'users#show_barber'
    delete '/barbers/:id' => 'barbers#destroy'
    patch '/barbers/:id/edit' => 'barbers#edit'
 

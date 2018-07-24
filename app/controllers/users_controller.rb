@@ -54,7 +54,11 @@ class UsersController < ProtectedController
   def show
     render json: @user
   end
-
+# Just added the below on 7/24
+  def show_barber
+    render json: @current_user.barber.id
+  end
+## ends here
   def update
     if @user.update(user_params)
       render json: @user
