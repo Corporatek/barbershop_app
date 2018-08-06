@@ -1,4 +1,4 @@
-class AppointmentsController < ApplicationController
+class AppointmentsController < OpenReadController
   before_action :set_appointment, only: [:show, :update, :destroy]
 
   # GET /appointments
@@ -15,12 +15,18 @@ class AppointmentsController < ApplicationController
 
   # POST /appointments
   def create
-    @appointment = Appointment.new(appointment_params)
+    #@barber = Barber.find(params[:id])
+    unless current_user.barber?
+      @appointment = Appointment.new(appointment_params)
 
-    if @appointment.save
-      render json: @appointment, status: :created, location: @appointment
+      if @appointment.save
+        render json: @appointment, status: :created, location: @appointment
+      else
+        render json: @appointment.errors, status: :unprocessable_entity
+      end
     else
-      render json: @appointment.errors, status: :unprocessable_entity
+      status = :unauthorized
+      render json: {message: 'Barbers cannot create appointments!'}.to_json, status: status
     end
   end
 
@@ -46,6 +52,7 @@ class AppointmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def appointment_params
-      params.require(:appointment).permit(:date, :haircut, :user_id, :barber_id)
+      params.require(:appointment).permit(:date, :haircut, :user_id, :barber_id, :time)
     end
-end
+ end
+

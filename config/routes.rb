@@ -16,11 +16,13 @@ Rails.application.routes.draw do
   # Apppointment custom routes
    post '/appointments' => 'appointments#create'
    get '/appointments/:id' =>'appointments#show'
+   # get '/appointments/for_user/:id' => 'appointments#show_all_for_current_user'
+   # get '/appointments/for_barber/:id' => 'appointments#show_all_for_barber'
    delete '/appointments/:id' => 'appointments#destroy'
-   patch '/appointments/:id/edit' => 'appointments#edit'
+   patch '/appointments/:id/edit' => 'appointments#update'
 
   # Barber custom routes
-  post '/barbers' => 'barbers#create'
+  # post '/barbers' => 'barbers#create'
   get '/barbers/:id' =>'barbers#show'
   get '/barbers/' => 'users#show_barber'
    delete '/barbers/:id' => 'barbers#destroy'
