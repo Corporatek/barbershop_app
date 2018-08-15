@@ -1,4 +1,4 @@
-class AppointmentsController < ApplicationController
+class AppointmentsController < OpenReadController
   before_action :set_appointment, only: [:show, :update, :destroy]
 
   # GET /appointments

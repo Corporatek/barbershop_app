@@ -1,4 +1,4 @@
-class BarbersController < ApplicationController
+class BarbersController < OpenReadController
   before_action :set_barber, only: [:show, :update, :destroy]
 
   # GET /barbers
