@@ -20,7 +20,8 @@ Rails.application.routes.draw do
    patch '/appointments/:id/edit' => 'appointments#edit'
 
   # Barber custom routes
-  post '/barbers' => 'barbers#create'
+   post '/barbers' => 'barbers#create'
+   get '/barbers' =>'barbers#index'
    get '/barbers/:id' =>'barbers#show'
    delete '/barbers/:id' => 'barbers#destroy'
    patch '/barbers/:id/edit' => 'barbers#edit'
