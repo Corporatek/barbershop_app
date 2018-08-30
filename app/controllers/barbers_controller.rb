@@ -1,5 +1,5 @@
-class BarbersController < OpenReadController
-  before_action :set_barber, only: [:show, :update, :destroy]
+class BarbersController < ProtectedController
+  before_action :set_barber, only: [:show, :update, :destroy, :create]
 
   # GET /barbers
   def index
