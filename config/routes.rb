@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   resources :appointments, except: %i[new edit]
-  resources :barbers, except: %i[new edit]
+  resources :barbers, except: %i[edit]
   # RESTful routes
   resources :examples, except: %i[new edit]
   resources :users, only: %i[index show update]
@@ -20,8 +20,8 @@ Rails.application.routes.draw do
    patch '/appointments/:id/edit' => 'appointments#edit'
 
   # Barber custom routes
-   post '/barbers' => 'barbers#create'
-   get '/barbers' =>'barbers#index'
+   post '/barber' => 'barbers#create'
+   get '/barbers/all' =>'barbers#index'
    get '/barbers/:id' =>'barbers#show'
    delete '/barbers/:id' => 'barbers#destroy'
    patch '/barbers/:id/edit' => 'barbers#edit'

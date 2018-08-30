@@ -16,21 +16,20 @@ ActiveRecord::Schema.define(version: 20180724023649) do
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.integer "barber_id"
+    t.datetime "date"
+    t.string "haircut"
+    t.bigint "user_id", null: false
+    t.bigint "barber_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.string "time"
-    t.date "date"
-    t.string "haircut"
+    t.index ["barber_id"], name: "index_appointments_on_barber_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
   create_table "barbers", force: :cascade do |t|
     t.string "name"
     t.integer "chair"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_barbers_on_user_id"
   end
 
@@ -46,14 +45,16 @@ ActiveRecord::Schema.define(version: 20180724023649) do
     t.string "email", null: false
     t.string "token", null: false
     t.string "password_digest", null: false
+    t.boolean "barber", default: false
+    t.integer "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "phone_number"
-    t.boolean "barber", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["token"], name: "index_users_on_token", unique: true
   end
 
+  add_foreign_key "appointments", "barbers"
+  add_foreign_key "appointments", "users"
   add_foreign_key "barbers", "users"
   add_foreign_key "examples", "users"
 end

@@ -1,3 +1,3 @@
 class BarberSerializer < ActiveModel::Serializer
-  attributes :name, :chair, :user_id
+  attributes :id, :name, :chair, :user_id
 end

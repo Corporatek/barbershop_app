@@ -3,16 +3,11 @@ class CreateAppointments < ActiveRecord::Migration[5.1]
     create_table :appointments do |t|
       t.datetime :date
       t.string :haircut
-      t.integer :user_id
-      t.integer :barber_id, index: true
       t.references :user, index: true, foreign_key: true, null: false
       t.references :barber, index: true, foreign_key: true, null:false
 
       t.timestamps null: false
     end
-    # add_index :appointments, ["user_id"], name: "index_appointments_on_user_id"
-    # add_index :appointments, ["barber_id"], name: "index_appointments_on_barber_id"
-
   end
 
 end
