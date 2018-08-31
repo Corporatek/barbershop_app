@@ -15,7 +15,7 @@ class BarbersController < OpenReadController
 
   # POST /barbers
   def create
-    @barber = current_user.barber.build(barber_params)
+    @barber = current_user.Barber.new(barber_params)
     # tests below
   
     if @barber.save
