@@ -15,9 +15,9 @@ class BarbersController < OpenReadController
 
   # POST /barbers
   def create
-    @barber = current_user.Barber.new(barber_params)
+    @barber = current_user.barbers.build(barber_params)
     # tests below
-  
+    @barber = Barber.new
     if @barber.save
       render json: @barber, status: :created, location: @barber
     else
