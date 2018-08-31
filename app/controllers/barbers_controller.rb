@@ -1,5 +1,5 @@
 class BarbersController < OpenReadController
-  before_action :set_barber, only: [:show, :update, :destroy]
+  before_action :set_barber, only: [:update, :destroy]
 
   # GET /barbers
   def index
@@ -41,7 +41,7 @@ class BarbersController < OpenReadController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_barber
-      @barber = current_user.barbers.find(params[:id])
+      @barber = current_user.barber.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

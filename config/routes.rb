@@ -17,11 +17,11 @@ Rails.application.routes.draw do
    post '/appointments' => 'appointments#create'
    get '/appointments/:id' =>'appointments#show'
    delete '/appointments/:id' => 'appointments#destroy'
-   patch '/appointments/:id/edit' => 'appointments#edit'
+   patch '/appointments/:id' => 'appointments#edit'
 
   # Barber custom routes
    post '/barber' => 'barbers#create'
-   get '/barbers/all' =>'barbers#index'
+   get '/barbers' =>'barbers#index'
    get '/barbers/:id' =>'barbers#show'
    delete '/barbers/:id' => 'barbers#destroy'
    patch '/barbers/:id/edit' => 'barbers#edit'
