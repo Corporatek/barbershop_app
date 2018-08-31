@@ -15,7 +15,7 @@ class AppointmentsController < OpenReadController
 
   # POST /appointments
   def create
-    @appointment = current_user.Appointment.build(appointment_params)
+    @appointment = current_user.appointment.build(appointment_params)
 
     if @appointment.save
       render json: @appointment, status: :created, location: @appointment
