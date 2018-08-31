@@ -15,6 +15,8 @@ class BarbersController < OpenReadController
 
   # POST /barbers
   def create
+    binding.pry()
+    
     @barber = current_user.barber.build(barber_params)
     # tests below
     if @barber.save
