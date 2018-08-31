@@ -41,7 +41,7 @@ class AppointmentsController < OpenReadController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_appointment
-      @appointment = current_user.appointment.find(params[:id])
+      @appointment = current_user.appointments.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
