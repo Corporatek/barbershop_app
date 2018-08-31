@@ -1,5 +1,5 @@
 class BarbersController < ApplicationController
-  before_action :set_barber, only: [:show, :update, :destroy, :create]
+  before_action :set_barber, only: [:show, :update, :destroy]
 
   # GET /barbers
   def index
